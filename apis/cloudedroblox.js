@@ -1,6 +1,6 @@
 // https://create.roblox.com/docs/cloud/open-cloud
 
-(function (Scratch) {
+(function(Scratch) {
     'use strict';
     
     var API_key = "";
@@ -27,8 +27,7 @@
       setAPIkey(args) {
         API_key = args.APIKEY;
       }
-      }    
-    }
-              
-    Scratch.extensions.register(new CloudedRoblox());
+      }   
+    
+  Scratch.extensions.register(new CloudedRoblox());
 })(Scratch);
