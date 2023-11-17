@@ -1,0 +1,10 @@
+How to commit and push using the terminal:
+
+> git add .
+> git commit -m "message here"
+> git push
+
+
+
+
+I'll remember this
