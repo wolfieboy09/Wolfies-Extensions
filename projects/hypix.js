@@ -4,17 +4,17 @@
   var APIkey = "";
 
   // ratelimites
-  var RateLimitLimit = 0;
-  var RateLimitRemaining = 0;
-  var RateLimitReset = 0;
+  // var RateLimitLimit = 0;
+  // var RateLimitRemaining = 0;
+  // var RateLimitReset = 0;
 
   // http stuff
-  var success = false;
-  var cause = "";
+  // var success = false;
+  // var cause = "";
 
   // 429 responce
-  var throttle = false;
-  var global = false;
+  // var throttle = false;
+  // var global = false;
 
   // game type
   var setGameType = "";
@@ -111,6 +111,7 @@
           headers: {
             "Content-Type": "application/json",
             "API-Key": APIkey,
+            'game': GAME, // not  true
           },
         })
           // MUST be .text() for it to work

@@ -1,7 +1,7 @@
 (function(Scratch) {
-  "use strict";
+  'use strict';
 
-  class Easier3DMath {
+  class ThreeDmathConverter {
     getInfo() {
       return {
         id: "easier3dmath",
@@ -15,23 +15,33 @@
           {
             opcode: "convertARRAYtoXYZ",
             blockType: Scratch.BlockType.REPORTER,
-            text: "convert [ARRAY] to [XYZOPT]",
+            text: "convert [ARRAY] to [XYZ]",
             arguments: {
               ARRAY: { type: Scratch.ArgumentType.STRING },
-              XYZOPT: { menu: "XYZOPT", defaultValue: "X" },
+              XYZ: { menu: "XYZ", defaultValue: "X" },
             },
           },
         ],
         menus: {
-          XYZOPT: {
+          XYZ: {
             acceptReporters: true,
             items: ["X", "Y", "Z"],
-          },
-        },
-      };
+          }
+        }
+      }
     }
+
+    convertARRAYtoXYZ({ ARRAY, XYZ }) {
+      if (XYZ == 'X') {
+        return ARRAY[0]
+      } else if (XYZ == 'Y') {
+        return ARRAY[1]
+      } else if (XYZ == 'Z') {
+        return ARRAY[2]
+      }
+    }
+
   }
 
-  Scratch.extension.register(new Easier3DMath());
-// eslint-disable-next-line no-undef
+  Scratch.extension.register(new ThreeDmathConverter());
 })(Scratch);
