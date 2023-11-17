@@ -1,4 +1,4 @@
-(function (Scratch) {
+(function(Scratch) {
   "use strict";
 
   class Easier3DMath {
@@ -32,5 +32,6 @@
     }
   }
 
-  Scratch.extenstions.register(new Easier3DMath());
+  Scratch.extension.register(new Easier3DMath());
+// eslint-disable-next-line no-undef
 })(Scratch);
