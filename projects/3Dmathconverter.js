@@ -1,5 +1,5 @@
-(function(Scratch) {
-  'use strict';
+(function (Scratch) {
+  "use strict";
 
   class ThreeDmathConverter {
     getInfo() {
@@ -26,21 +26,20 @@
           XYZ: {
             acceptReporters: true,
             items: ["X", "Y", "Z"],
-          }
-        }
-      }
+          },
+        },
+      };
     }
 
     convertARRAYtoXYZ({ ARRAY, XYZ }) {
-      if (XYZ == 'X') {
-        return ARRAY[0]
-      } else if (XYZ == 'Y') {
-        return ARRAY[1]
-      } else if (XYZ == 'Z') {
-        return ARRAY[2]
+      if (XYZ == "X") {
+        return ARRAY[0];
+      } else if (XYZ == "Y") {
+        return ARRAY[1];
+      } else if (XYZ == "Z") {
+        return ARRAY[2];
       }
     }
-
   }
 
   Scratch.extension.register(new ThreeDmathConverter());

@@ -111,7 +111,7 @@
           headers: {
             "Content-Type": "application/json",
             "API-Key": APIkey,
-            'game': GAME, // not  true
+            game: GAME, // not  true
           },
         })
           // MUST be .text() for it to work
