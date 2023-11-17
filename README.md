@@ -10,5 +10,11 @@ Here is where all my extensions will be for stuff. I will host an extension webs
 
 Current extensions in here:
 
-- Interneter
-  ( Checks if the internet is connected or not )
+- Interneter    ( Checks if the internet is connected or not )
+- CloudedRoblox ( Roblox Cloud API )
+- Hypix ( Hypixel API )
+- 3Dmathconverter ( 3D math converter where it converts arrays to numbers and backward)
+- Screwup ( First-ever extension where I just did random things )
+- Muter ( Mutes and unmutes the tab [DOES NOT WORK] )
+- Airsense ( AirQuality )
+- Weatherize ( Weather things )
