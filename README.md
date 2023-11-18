@@ -13,6 +13,6 @@ Current extensions in here:
 - Hypix ( Hypixel API )
 - 3Dmathconverter ( 3D math converter where it converts arrays to numbers and backward)
 - Screwup ( First-ever extension where I just did random things )
-- Muter ( Mutes and unmutes the tab [DOES NOT WORK] )
+- Muter ( Mutes and unmutes the tab [needs reworking] )
 - Airsense ( AirQuality )
 - Weatherize ( Weather things )
