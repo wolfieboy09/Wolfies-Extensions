@@ -15,12 +15,12 @@
                         }
                     }
                 ]
-            };
-
-            copyToCLIPBOARD({ TEXT }) {
-                navigator.clipboard.writeText(TEXT)
             }
+        }
+
+        copyToCLIPBOARD({ TEXT }) {
+            navigator.clipboard.writeText(TEXT)
         }
     }
 
-})(Scratch)
+})(Scratch);
