@@ -39,6 +39,36 @@
                             }
 
                         }
+                    },
+                    {
+                        opcode: 'calcRESISTANCE',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'calculate resistance | voltage: [VOLTAGE] current: [CURRENT]',
+                        arguments: {
+                            VOLTAGE: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: '1',
+                            },
+                            CURRENT: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: '1'
+                            }
+                        }
+                    },
+                    {
+                        opcode: 'calcPOWER',
+                        blockType: Scratch.ArgumentType.REPORTER,
+                        text: 'calculate power | work: [WORK] time: [TIME]',
+                        arguments: {
+                            WORK: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: '1',
+                            },
+                            TIME: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: '1',
+                            }
+                        }
                     }
                 ]
             }
@@ -48,6 +78,12 @@
         }
         calcVOLTAGE({ CURRENT, RESISTANCE}) {
             return CURRENT * RESISTANCE
+        }
+        calcRESISTANCE({ VOLTAGE, CURRENT }) {
+            return VOLTAGE / CURRENT
+        }
+        calcPOWER({ WORK, TIME }) {
+            return WORK / TIME
         }
     }
 
