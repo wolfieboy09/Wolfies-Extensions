@@ -1,5 +1,8 @@
 (function(Scratch){
 
+    if (!Scratch.extensions.usandboxed) {
+        throw new Error("Familiar Formulas must be unsandboxed")
+    }
     class FamiliarFormulas {
         getInfo() {
             return {
