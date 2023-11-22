@@ -1,8 +1,5 @@
 (function(Scratch){
 
-    if (!Scratch.extensions.usandboxed) {
-        throw new Error("Familiar Formulas must be unsandboxed")
-    }
     class FamiliarFormulas {
         getInfo() {
             return {
@@ -60,7 +57,7 @@
                     },
                     {
                         opcode: 'calcPOWER',
-                        blockType: Scratch.ArgumentType.REPORTER,
+                        blockType: Scratch.BlockType.REPORTER,
                         text: 'calculate power | work: [WORK] time: [TIME]',
                         arguments: {
                             WORK: {
@@ -72,21 +69,39 @@
                                 defaultValue: '1',
                             }
                         }
+                    },
+                    {
+                        opcode: 'calcTIME',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'calculate time | distance: [DISTANCE] velocity: [VELOCITY]',
+                        arguments: {
+                            DISTANCE: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: '1',
+                            },
+                            VELOCITY: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: '1',
+                            }
+                        }
                     }
                 ]
             }
         }
         calcCURRENT({ VOLTAGE, RESISTANCE }) {
-            return VOLTAGE / RESISTANCE
+            return VOLTAGE / RESISTANCE;
         }
         calcVOLTAGE({ CURRENT, RESISTANCE}) {
-            return CURRENT * RESISTANCE
+            return CURRENT * RESISTANCE;
         }
         calcRESISTANCE({ VOLTAGE, CURRENT }) {
-            return VOLTAGE / CURRENT
+            return VOLTAGE / CURRENT;
         }
         calcPOWER({ WORK, TIME }) {
             return WORK / TIME
+        }
+        calcTIME({ DISTANCE, VELOCITY }) {
+            return DISTANCE / VELOCITY;
         }
     }
 
