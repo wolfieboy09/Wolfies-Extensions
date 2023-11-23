@@ -32,6 +32,8 @@ module.exports = {
         allowEmptyCatch: true,
       },
     ],
+    //! Requires the "===" and "!==" ONLY
+    "eqeqeq": "error",
     // Returning a value from a constructor() implies a mistake
     "no-constructor-return": "error",
     // new Promise(async () => {}) implies a mistake
