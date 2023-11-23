@@ -98,7 +98,7 @@
             return VOLTAGE / CURRENT;
         }
         calcPOWER({ WORK, TIME }) {
-            return WORK / TIME
+            return WORK / TIME;
         }
         calcTIME({ DISTANCE, VELOCITY }) {
             return DISTANCE / VELOCITY;
