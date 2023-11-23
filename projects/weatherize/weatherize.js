@@ -141,15 +141,15 @@
     }
     // currently set blocks
     currSetVARABLES({ WVARS }) {
-      if (WVARS == "Latitude") {
+      if (WVARS === "Latitude") {
         return user_LATITUDE;
-      } else if (WVARS == "Longitude") {
+      } else if (WVARS === "Longitude") {
         return user_LONGITUDE;
-      } else if (WVARS == "Tempature Unit") {
+      } else if (WVARS === "Tempature Unit") {
         return tempUnit;
-      } else if (WVARS == "Wind Speed Unit") {
+      } else if (WVARS === "Wind Speed Unit") {
         return windspeedUNIT;
-      } else if (WVARS == "Forecast Days") {
+      } else if (WVARS === "Forecast Days") {
         return forecastdays;
       }
     }

@@ -32,11 +32,11 @@
     }
 
     convertARRAYtoXYZ({ ARRAY, XYZ }) {
-      if (XYZ == "X") {
+      if (XYZ === "X") {
         return ARRAY[0];
-      } else if (XYZ == "Y") {
+      } else if (XYZ === "Y") {
         return ARRAY[1];
-      } else if (XYZ == "Z") {
+      } else if (XYZ === "Z") {
         return ARRAY[2];
       }
     }
