@@ -16,3 +16,4 @@ Current extensions in here:
 - Muter ( Mutes and unmutes the tab [needs reworking] )
 - Airsense ( AirQuality )
 - Weatherize ( Weather things )
+- Familiar Formulas ( Formulas to diffrent things )
