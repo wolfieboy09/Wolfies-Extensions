@@ -8,4 +8,6 @@ updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/node_modules" # Location of package manifests
     schedule:
-      interval: "daily" # JUST TO SEE WHAT IT DOES
+      interval: "weekly"
+    commit-message:
+      prefix: "npm"
