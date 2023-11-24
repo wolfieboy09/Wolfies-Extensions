@@ -32,6 +32,10 @@ module.exports = {
         allowEmptyCatch: true,
       },
     ],
+    //! Disallow duplicate conditions in if-else-if chains (if C && C show up multipule times)
+    "no-dupe-else-if": "error",
+    //! Disallows duplicate keys in object literals
+    "no-dupe-keys": "error",
     //! Requires the "===" and "!==" ONLY
     "eqeqeq": "error",
     // Returning a value from a constructor() implies a mistake
