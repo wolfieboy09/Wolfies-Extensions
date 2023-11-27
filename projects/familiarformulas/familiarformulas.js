@@ -123,8 +123,8 @@
 
         // Math Grapth stuff
         calcDISTENCE({ X1, Y1, X2, Y2 }) {
-            let evalMath = Math.pow(X2 - X1, 2) + Math.pow(Y2 - Y1, 2)
-            return Math.sqrt(evalMath)
+            let evalMath = Math.pow(X2 - X1, 2) + Math.pow(Y2 - Y1, 2);
+            return Math.sqrt(evalMath);
         }
     }
 
