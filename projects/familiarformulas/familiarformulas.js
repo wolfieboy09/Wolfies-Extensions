@@ -84,10 +84,27 @@
                                 defaultValue: '1',
                             }
                         }
+                    },
+                    {
+                        blockType: 'label',
+                        text: 'Grapth things'
+                    },
+                    {
+                        opcode: 'calcDISTENCE',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'calculate distence | ([X1], [Y1]) ([X2], [Y2])',
+                        arguments: {
+                            X1: { type: Scratch.ArgumentType.NUMBER },
+                            X2: { type: Scratch.ArgumentType.NUMBER },
+                            Y1: { type: Scratch.ArgumentType.NUMBER },
+                            Y2: { type: Scratch.ArgumentType.NUMBER }
+                        }
                     }
                 ]
             }
         }
+
+        // Physics
         calcCURRENT({ VOLTAGE, RESISTANCE }) {
             return VOLTAGE / RESISTANCE;
         }
@@ -102,6 +119,12 @@
         }
         calcTIME({ DISTANCE, VELOCITY }) {
             return DISTANCE / VELOCITY;
+        }
+
+        // Math Grapth stuff
+        calcDISTENCE({ X1, Y1, X2, Y2 }) {
+            let evalMath = Math.pow(X2 - X1, 2) + Math.pow(Y2 - Y1, 2)
+            return Math.sqrt(evalMath)
         }
     }
 
