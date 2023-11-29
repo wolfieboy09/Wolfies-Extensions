@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send Deploy Complete Webhook
+        if: always()
+        uses: peter-evans/webhook-action@v2
+        with:
+          url: ${{ secrets.WEBHOOK_URL }}
+          method: POST
+          headers: |
+            Content-Type: application/json
+          data: '{"message": "Deployment completed successfully"}'
