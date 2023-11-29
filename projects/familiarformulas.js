@@ -7,125 +7,44 @@
                 name: 'Familiar Formulas',
                 color1: '',
                 blocks: [
-                    {  blockType: 'label', text: 'Physics Formulas' },
+                    { blockType: 'label', text: 'Slope Formula'},
                     {
-                        opcode: 'calcCURRENT',
+                        opcode: 'calcSLOPE',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: 'calcuate current | voltage: [VOLTAGE] resistance: [RESISTANCE]',
+                        text: 'slope y2 [Y2] y1 [Y1] x2 [X2] x1 [X1]',
                         arguments: {
-                            VOLTAGE: { 
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1'
-                            },
-                            RESISTANCE: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1'      
-                            }
-
-                        }
-                    },
-                    {
-                        opcode: 'calcVOLTAGE',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'calcualte voltage | current: [CURRENT] resistance: [RESISTANCE]',
-                        arguments: {
-                            CURRENT: { 
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1'
-                            },
-                            RESISTANCE: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1'      
-                            }
-
-                        }
-                    },
-                    {
-                        opcode: 'calcRESISTANCE',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'calculate resistance | voltage: [VOLTAGE] current: [CURRENT]',
-                        arguments: {
-                            VOLTAGE: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1',
-                            },
-                            CURRENT: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1'
-                            }
-                        }
-                    },
-                    {
-                        opcode: 'calcPOWER',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'calculate power | work: [WORK] time: [TIME]',
-                        arguments: {
-                            WORK: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1',
-                            },
-                            TIME: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1',
-                            }
-                        }
-                    },
-                    {
-                        opcode: 'calcTIME',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'calculate time | distance: [DISTANCE] velocity: [VELOCITY]',
-                        arguments: {
-                            DISTANCE: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1',
-                            },
-                            VELOCITY: {
-                                type: Scratch.ArgumentType.NUMBER,
-                                defaultValue: '1',
-                            }
-                        }
-                    },
-                    {
-                        blockType: 'label',
-                        text: 'Grapth things'
-                    },
-                    {
-                        opcode: 'calcDISTENCE',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'calculate distence | ([X1], [Y1]) ([X2], [Y2])',
-                        arguments: {
-                            X1: { type: Scratch.ArgumentType.NUMBER },
-                            X2: { type: Scratch.ArgumentType.NUMBER },
-                            Y1: { type: Scratch.ArgumentType.NUMBER },
-                            Y2: { type: Scratch.ArgumentType.NUMBER }
+                            Y2: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1},
+                            Y1: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1},
+                            X2: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1},
+                            X1: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1}
                         }
                     }
                 ]
             }
         }
 
-        // Physics
-        calcCURRENT({ VOLTAGE, RESISTANCE }) {
-            return VOLTAGE / RESISTANCE;
+        calcSLOPE({ X1, X2, Y1, Y2 }) {
+            const numericX1 = parseInt(X1);
+            const numericX2 = parseInt(X2);
+            const numericY1 = parseInt(Y1);
+            const numericY2 = parseInt(Y2);
+        
+            if (!isNaN(numericX1) && !isNaN(numericX2) && !isNaN(numericY1) && !isNaN(numericY2)) {
+                const denominator = numericX2 - numericX1;
+        
+                if (denominator !== 0) {
+                    const slope = (numericY2 - numericY1) / denominator;
+                    return slope.toString();
+                } else {
+                    return "Undefined or infinite slope (division by zero)";
+                }
+            } else {
+                return "Invalid input: Please provide numeric values";
+            }
         }
-        calcVOLTAGE({ CURRENT, RESISTANCE}) {
-            return CURRENT * RESISTANCE;
-        }
-        calcRESISTANCE({ VOLTAGE, CURRENT }) {
-            return VOLTAGE / CURRENT;
-        }
-        calcPOWER({ WORK, TIME }) {
-            return WORK / TIME;
-        }
-        calcTIME({ DISTANCE, VELOCITY }) {
-            return DISTANCE / VELOCITY;
-        }
-
-        // Math Grapth stuff
-        calcDISTENCE({ X1, Y1, X2, Y2 }) {
-            let evalMath = Math.pow(X2 - X1, 2) + Math.pow(Y2 - Y1, 2);
-            return Math.sqrt(evalMath);
-        }
+        
+        
+        
     }
 
     
