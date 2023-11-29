@@ -17,3 +17,5 @@ Current extensions in here:
 - Airsense ( AirQuality )
 - Weatherize ( Weather things )
 - Familiar Formulas ( Formulas to diffrent things )
+
+*Inspired by Sharkpools extension place*
