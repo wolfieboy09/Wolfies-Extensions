@@ -1,5 +1,4 @@
 (function(Scratch) {
-    
     class SomeRandomThings {
         getInfo() {
             return {
