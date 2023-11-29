@@ -33,8 +33,8 @@
     }
 
     setLocation(args) {
-      userLAT = args.LATITUDE;
-      userLONG = args.LONGITUDE;
+      this.userLAT = args.LATITUDE;
+      this.userLONG = args.LONGITUDE;
     }
   }
 
