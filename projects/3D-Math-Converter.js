@@ -1,10 +1,15 @@
+// Name: 3D Math Converter
+// ID: 3dmathconverter
+// Description: Makes the 3D math extension where it convertes arrays to numbers and back.
+// By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
+
 (function (Scratch) {
   "use strict";
 
   class ThreeDmathConverter {
     getInfo() {
       return {
-        id: "easier3dmath",
+        id: "3dmathconverter",
         name: "Easier 3D Math",
         color1: "#1d6604",
         blocks: [

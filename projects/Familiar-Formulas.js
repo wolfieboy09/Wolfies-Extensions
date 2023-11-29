@@ -1,3 +1,9 @@
+// Name: Familier Formulas
+// ID: familiarformulas
+// Description: Bunch of math utilities.
+// By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
+
+
 (function(Scratch){
 
     class FamiliarFormulas {
@@ -14,9 +20,9 @@
                         text: 'slope y2 [Y2] y1 [Y1] x2 [X2] x1 [X1]',
                         arguments: {
                             Y2: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1},
-                            Y1: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1},
-                            X2: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1},
-                            X1: { type: Scratch.ArgumentType.NUMBER, defaultValue: 1}
+                            Y1: { type: Scratch.ArgumentType.NUMBER, defaultValue: 2},
+                            X2: { type: Scratch.ArgumentType.NUMBER, defaultValue: 3},
+                            X1: { type: Scratch.ArgumentType.NUMBER, defaultValue: 4}
                         }
                     }
                 ]

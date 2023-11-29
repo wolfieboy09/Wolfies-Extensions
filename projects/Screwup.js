@@ -1,3 +1,10 @@
+// Name: Screwup
+// ID: screwup
+// Description: The first extension that I made. It just gets random stuff.
+// By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
+
+
+
 // https://extensions.turbowarp.org/CubesterYT/WindowControls.js
 // https://extensions.turbowarp.org/shreder95ua/resolution.js
 // https://extensions.turbowarp.org/NexusKitten/controlcontrols.js

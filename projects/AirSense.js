@@ -1,3 +1,8 @@
+// Name: AirSense
+// ID: airsense
+// Description: Fetches air quality. API Key required.
+// By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
+
 (function (Scratch) {
   "use strict";
 

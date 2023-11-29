@@ -1,3 +1,9 @@
+// Name: Hypix
+// ID: hypix
+// Description: Uses the Hypixel API. API key required.
+// By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
+
+
 (function (Scratch) {
   "use strict";
   // API key

@@ -1,3 +1,9 @@
+// Name: Weatherize
+// ID: weatherize
+// Description: Weather extension.
+// By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
+
+
 // https://open-meteo.com/en/docs
 
 // PRE-ALPHA
