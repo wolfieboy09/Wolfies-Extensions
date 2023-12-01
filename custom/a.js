@@ -1,5 +1,5 @@
 (function(Scratch) {
-    var JSON = {};
+    var payload = {'username': '', 'id': '', 'profile_url': '', 'badges': [], 'clean': true, 'offenses': {'warnings': []}};
 
     if (!Scratch.extensions.unsandboxed) {
         throw new Error("Accounter must be unsandboxed");
@@ -18,19 +18,16 @@
                         text: 'new account with username [USERNAME] with an id of [UID]',
                         arguments: {
                             USERNAME: { type: Scratch.ArgumentType.STRING, defaultValue: 'mistium' },
-                            NORUIDM_OR_DISC: {
-                                type: Scratch.ArgumentType.STRING,
-                                defaultValue: "",
-                            }
+                            UID: { type: Scratch.ArgumentType.STRING, defaultValue: "" }
                         }
                     }
                 ]
             }
         }
 
-        // functions go here
-        createAccount() {
-            
+        createAccount({ USERNAME, UID }) {
+            payload['username'] = USERNAME;
+            payload['id'] = UID;
         }
     }
     Scratch.extensions.register(new Accounter())
