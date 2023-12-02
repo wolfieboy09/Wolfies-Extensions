@@ -53,6 +53,20 @@
                         arguments: {
                             BADGE: { menu: 'BADGE', defaultValue: ''}
                         }
+                    },
+                    {
+                        opcode: 'getCurrentData',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'get current data',
+                    },
+                    { blockType: 'label', text: 'User Offenses'},
+                    {
+                        opcode: 'newOffence',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'new offence warning [WARNING]',
+                        arguments: {
+                            WARNING: { type: Scratch.ArgumentType.STRING, defaultValue: 'not being smart'}
+                        }
                     }
                 ],
                 menus: {
@@ -62,10 +76,10 @@
         }
 
         createAccount({ USERNAME, UID, PROFILE_URL, VERSION }) {
-            payload['username'] = USERNAME;
-            payload['id'] = UID;
-            payload['profile_url'] = PROFILE_URL;
-            payload['version_created_on'] = VERSION;
+            payload.username = USERNAME;
+            payload.id = UID;
+            payload.profile_url = PROFILE_URL;
+            payload.version_created_on = VERSION;
         }
 
         resetPayload() {
@@ -73,15 +87,22 @@
         }
 
         newBadge({ BADGE }) {
-            if (!payload['badges'].includes(BADGE)) {
-                payload['badges'].push(BADGE)
+            if (!payload.badges.includes(BADGE)) {
+                payload.badges.push(BADGE)
             }
         }
 
         revokeBadge({ BADGE }) {
-            console.log(`Before: ${payload['badges']}`);
-            payload['badges'].splice(payload['badges'].indexOf(BADGE));
-            console.log(`After: ${payload['badges']}`);
+            payload.badges.splice(payload.badges.indexOf(BADGE));
+        }
+
+        getCurrentData() {
+            return payload.text();
+        }
+
+        newOffence({ WARNING }) {
+            payload.clean = false;
+            payload.offenses.warnings.push(WARNING);
         }
         
     }
