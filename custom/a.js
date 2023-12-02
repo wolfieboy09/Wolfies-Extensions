@@ -97,7 +97,7 @@
         }
 
         getCurrentData() {
-            return payload.text();
+            return JSON.stringify(payload);
         }
 
         newOffence({ WARNING }) {
