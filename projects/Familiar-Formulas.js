@@ -5,7 +5,7 @@
 
 
 (function(Scratch){
-
+    "use strict";
     class FamiliarFormulas {
         getInfo() {
             return {

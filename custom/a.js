@@ -1,5 +1,9 @@
 (function(Scratch) {
+    "use strict";
+
     const basePayload = {'username': '', 'id': '', 'profile_url': '', 'badges': [], 'clean': true, 'offenses': {'warnings': []}};
+    const badges = ['Server Booster', 'Top 10', 'OSL Savent', 'ICN Expert', 'Front Creator', 'OS Developer', 'Oki Dev Team', 'Chatter']
+
     var payload = basePayload;
 
     if (!Scratch.extensions.unsandboxed) {
@@ -27,6 +31,11 @@
                         opcode: 'resetPayload',
                         blockType: Scratch.BlockType.COMMAND,
                         text: 'reset user payload'
+                    },
+                    {
+                        opcode: 'newBadge',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: ''
                     }
                 ]
             }
