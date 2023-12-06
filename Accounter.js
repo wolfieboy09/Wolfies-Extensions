@@ -76,16 +76,10 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
                             BADGE: { menu: 'BADGE', defaultValue: ''}
                         }
                     },
-                    { blockType: 'label', text: 'User Data'},
                     {
                         opcode: 'getCurrentData',
                         blockType: Scratch.BlockType.REPORTER,
                         text: 'get current data',
-                    },
-                    {
-                        opcode: 'getOffense',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'get offence'
                     },
                     { blockType: 'label', text: 'User Offenses'},
                     {
