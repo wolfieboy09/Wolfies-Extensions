@@ -3,6 +3,7 @@
 // Description: OriginOS Account handler system.
 // By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
 
+<<<<<<< HEAD:custom/Accounter.js
 /*
 This script is designed for the OriginOS Account handler system.
 Use outside of OriginOS is prohibited without prior permission.
@@ -24,25 +25,12 @@ This license does not grant any additional rights and is supplemental to the ter
 For inquiries regarding licensing or usage permissions, please contact [Contact Information].
 
 */
+=======
+>>>>>>> 7b31d8fccff5679a35941b788d45d92c82dd4561:Accounter.js
 (function(Scratch) {
     "use strict";
 
-    const basePayload = {
-        'username': '', 
-        'id': '', 
-        'profile_url': '', 
-        'version_created_on': '', 
-        'password': '', // hashed
-        'email': '',
-        'badges': [], 
-        'clean': true, 
-        'offenses': {
-            'warnings': []
-        }
-    };
-
-    var toBeDeleted = [];
-
+    const basePayload = {'username': '', 'id': '', 'profile_url': '', 'version_created_on': '', 'badges': [], 'clean': true, 'offenses': {'warnings': []}};
     const badges = ['Server Booster', 'ICN Expert', 'Front Creator', 'OS Developer']
 
     var payload = basePayload;
@@ -74,9 +62,6 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
                         blockType: Scratch.BlockType.COMMAND,
                         text: 'reset user payload'
                     },
-
-                    '---',
-
                     {
                         opcode: 'newBadge',
                         blockType: Scratch.BlockType.COMMAND,
@@ -93,32 +78,18 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
                             BADGE: { menu: 'BADGE', defaultValue: ''}
                         }
                     },
-
-                    '---',
-
+                    { blockType: 'label', text: 'User Data'},
                     {
                         opcode: 'getCurrentData',
                         blockType: Scratch.BlockType.REPORTER,
                         text: 'get current data',
                     },
-
-                    '---',
                     {
-                        opcode: 'newAccountForDeletion',
-                        blockType: Scratch.BlockType.COMMAND,
-                        text: 'put [ACCOUNT_ID] into deletion',
-                        arguments: {
-                            ACCOUNT_ID: { type: Scratch.ArgumentType.STRING, defaultValue: 'act/one2three'}
-                        }
-                    },
-                    {
-                        opcode: 'getAccountsUpForDeletion',
+                        opcode: 'getOffense',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: 'get accounts up for deletion'
+                        text: 'get offence'
                     },
-
-                    '---',
-
+                    { blockType: 'label', text: 'User Offenses'},
                     {
                         opcode: 'newOffence',
                         blockType: Scratch.BlockType.COMMAND,
@@ -126,15 +97,6 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
                         arguments: {
                             WARNING: { type: Scratch.ArgumentType.STRING, defaultValue: 'not being smart'}
                         }
-                    },
-
-                    { blockType: 'label', text: 'Debugging purposes'},
-
-                    {
-                        opcode: 'clearAccountDeletions',
-                        blockType: Scratch.BlockType.COMMAND,
-                        text: 'clear accounts for deletions'
-
                     }
                 ],
                 menus: {
@@ -142,20 +104,20 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
                 }
             }
         }
-        // command - creates a new account
+
         createAccount({ USERNAME, UID, PROFILE_URL, VERSION }) {
             payload.username = USERNAME;
             payload.id = UID;
             payload.profile_url = PROFILE_URL;
             payload.version_created_on = VERSION;
         }
-        // command - resets the payload
+
         resetPayload() {
             payload = basePayload;
         }
-        // command
+
         newBadge({ BADGE }) {
-            if (!payload.badges.includes(BADGE) && BADGE !== '') {
+            if (!payload.badges.includes(BADGE)) {
                 payload.badges.push(BADGE)
             }
         }
@@ -168,25 +130,9 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
             return JSON.stringify(payload);
         }
 
-        newAccountForDeletion({ ACCOUNT_ID }) {
-            if (!toBeDeleted.includes(ACCOUNT_ID)) {
-                toBeDeleted.push(ACCOUNT_ID);
-            }
-        }
-
-        getAccountsUpForDeletion() {
-            return `"sys/tobedeleted": ${JSON.stringify(toBeDeleted)}`
-        }
-
         newOffence({ WARNING }) {
             payload.clean = false;
             payload.offenses.warnings.push(WARNING);
-        }
-
-
-        // DEBUGGING PURPOSES
-        clearAccountDeletions() {
-            toBeDeleted = [];
         }
         
     }
