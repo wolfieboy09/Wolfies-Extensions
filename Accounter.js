@@ -3,7 +3,7 @@
 // Description: OriginOS Account handler system.
 // By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
 
-<<<<<<< HEAD:custom/Accounter.js
+
 /*
 This script is designed for the OriginOS Account handler system.
 Use outside of OriginOS is prohibited without prior permission.
@@ -25,8 +25,7 @@ This license does not grant any additional rights and is supplemental to the ter
 For inquiries regarding licensing or usage permissions, please contact [Contact Information].
 
 */
-=======
->>>>>>> 7b31d8fccff5679a35941b788d45d92c82dd4561:Accounter.js
+
 (function(Scratch) {
     "use strict";
 
