@@ -1,0 +1,60 @@
+{
+    "extensions": {
+        "3D-Math-Converter": {
+            "desc": "Makes the 3D math extension where it convertes arrays to numbers and back.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.utilities",
+            "status": ""
+        },
+        "AirSense": {
+            "desc": "Fetches air quality. API Key required.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.fetching",
+            "status": ""
+        },
+        "CloudedRoblox": {
+            "desc": "Uses Roblox's cloud API.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.fetching",
+            "status": ""
+        },
+        "Familiar-Formulas": {
+            "desc": "Bunch of math utilities.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.utilities",
+            "status": ""
+        },
+        "Hypix": {
+            "desc": "Uses the Hypixel API. API key required.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.fetching",
+            "status": ""
+        },
+        "Screwup": {
+            "desc": "The first extension that I made. It just gets random stuff.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.fetching",
+            "status": ""
+        },
+        "Weatherize": {
+            "desc": "Weather extension.",
+            "credits": "Wolfieboy09",
+            "contributor": "",
+            "url": "",
+            "tags": ".all.fetching",
+            "status": ""
+        }
+    }
+}
