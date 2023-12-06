@@ -3,12 +3,11 @@
 // Description: OriginOS Account handler system.
 // By: Wolfieboy09 <https://scratch.mit.edu/users/Wolfieboy09/>
 
-
-// This script is designed for the OriginOS Account handler system.
-// Use outside of OriginOS is prohibited without prior permission.
-// Unauthorized redistribution of Accounter will lead to extension takedown.
-
 /*
+This script is designed for the OriginOS Account handler system.
+Use outside of OriginOS is prohibited without prior permission.
+Unauthorized redistribution of Accounter will lead to extension takedown.
+
 
 OriginOS Accounter License
 
@@ -192,4 +191,4 @@ For inquiries regarding licensing or usage permissions, please contact [Contact 
         
     }
     Scratch.extensions.register(new Accounter())
-})(Scratch)
+})(Scratch);
