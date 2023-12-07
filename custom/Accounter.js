@@ -6,10 +6,24 @@
 (function(Scratch) {
     "use strict";
 
-    const basePayload = {'username': '', 'id': '', 'profile_url': '', 'version_created_on': '', 'badges': [], 'clean': true, 'offenses': {'warnings': []}};
-    const badges = ['Server Booster', 'ICN Expert', 'Front Creator', 'OS Developer']
+    const basePayload = {
+        'username': '', 
+        'id': '', 
+        'profile_url': '', 
+        'version_created_on': '', 
+        'password': '', // hashed
+        'email': '',
+        'badges': [], 
+        'clean': true, 
+        'offenses': {
+            'warnings': []
+        }
+    };
+
+    var badges = [""];
 
     var payload = basePayload;
+    var toBeDeleted = [""];
 
     if (!Scratch.extensions.unsandboxed) {
         throw new Error("Accounter must be unsandboxed");
@@ -34,10 +48,32 @@
                         }
                     },
                     {
+                        opcode: 'setEmailAndPassword',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'set email to [EMAIL] and a password of [PASSWORD]',
+                        arguments: { 
+                            EMAIL: { type: Scratch.ArgumentType.STRING, defaultValue: 'user@abc.xyz'},
+                            PASSWORD: { type: Scratch.ArgumentType.STRING, defaultValue: 'aaaaaaaaa'}
+                        }
+                    },
+                    {
+                        opcode: 'getCurrentData',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'get current data',
+                    },
+                    {
+                        opcode: 'getUserBadges',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'get user badges',
+                    },
+                    {
                         opcode: 'resetPayload',
                         blockType: Scratch.BlockType.COMMAND,
                         text: 'reset user payload'
                     },
+
+                    '---',
+
                     {
                         opcode: 'newBadge',
                         blockType: Scratch.BlockType.COMMAND,
@@ -54,12 +90,53 @@
                             BADGE: { menu: 'BADGE', defaultValue: ''}
                         }
                     },
+
+                    '---',
+
                     {
-                        opcode: 'getCurrentData',
-                        blockType: Scratch.BlockType.REPORTER,
-                        text: 'get current data',
+                        opcode: 'addBadgeToList',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'add [BADGE] to options',
+                        arguments: {
+                            BADGE: { type: Scratch.ArgumentType.STRING, defaultValue: 'member'}
+                        }
                     },
-                    { blockType: 'label', text: 'User Offenses'},
+                    {
+                        opcode: 'removeBadgeFromList',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'remove [BADGE] from options',
+                        arguments: {
+                            BADGE: { type: Scratch.ArgumentType.STRING, defaultValue: 'member'}
+                        }
+                    },
+
+                    '---',
+
+                    {
+                        opcode: 'newAccountForDeletion',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'grant [ACCOUNT_ID] into deletion',
+                        arguments: {
+                            ACCOUNT_ID: { type: Scratch.ArgumentType.STRING, defaultValue: 'act/failure' }
+                        }
+                    },
+                    {
+                        opcode: 'removeAccountForDeletion',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'revoke [ACCOUNT_ID] from deletion',
+                        arguments: {
+                            ACCOUNT_ID: { type: Scratch.ArgumentType.STRING, defaultValue: 'act/saved'}
+                        }
+                    },
+                    {
+                        opcode: 'getAccountsUpForDeletion',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'accounts up for deletion'
+                    },
+
+
+                    '---',
+
                     {
                         opcode: 'newOffence',
                         blockType: Scratch.BlockType.COMMAND,
@@ -81,6 +158,12 @@
             payload.profile_url = PROFILE_URL;
             payload.version_created_on = VERSION;
         }
+        
+        setEmailAndPassword({ EMAIL, PASSWORD }) {
+            payload.email = EMAIL;
+            payload.password = PASSWORD;
+            // the password is HASHED
+        }
 
         resetPayload() {
             payload = basePayload;
@@ -96,6 +179,23 @@
             payload.badges.splice(payload.badges.indexOf(BADGE));
         }
 
+        addBadgeToList({ BADGE }) {
+            if (!badges.includes(BADGE)) {
+                if (badges[0] === "") {
+                    badges[0] = BADGE;
+                } else {
+                    badges.push(BADGE);
+                }
+            }
+        }
+
+        removeBadgeFromList({ BADGE }) {
+            let index = badges.indexOf(BADGE);
+            if (index !== -1) {
+                badges.splice(index, 1);
+            }
+        }
+
         getCurrentData() {
             return JSON.stringify(payload);
         }
@@ -103,6 +203,23 @@
         newOffence({ WARNING }) {
             payload.clean = false;
             payload.offenses.warnings.push(WARNING);
+        }
+
+        newAccountForDeletion({ ACCOUNT_ID }) {
+            if (!toBeDeleted.includes(ACCOUNT_ID)) {
+                toBeDeleted.push(ACCOUNT_ID)
+            }
+        }
+
+        removeAccountForDeletion({ ACCOUNT_ID }) {
+            let index = toBeDeleted.indexOf(ACCOUNT_ID);
+            if (index !== -1) {
+                toBeDeleted.splice(index, 1)
+            }
+        }
+
+        getAccountsUpForDeletion() {
+            return `"sys/tobedeleted": ${JSON.stringify(toBeDeleted)}`;
         }
         
     }
