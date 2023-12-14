@@ -147,17 +147,22 @@
     }
     // currently set blocks
     currSetVARABLES({ WVARS }) {
-      if (WVARS === "Latitude") {
-        return user_LATITUDE;
-      } else if (WVARS === "Longitude") {
-        return user_LONGITUDE;
-      } else if (WVARS === "Tempature Unit") {
-        return tempUnit;
-      } else if (WVARS === "Wind Speed Unit") {
-        return windspeedUNIT;
-      } else if (WVARS === "Forecast Days") {
-        return forecastdays;
-      }
+      switch (WVARS) {
+        case "Latitude":
+          return user_LATITUDE;
+        case "Longitude":
+          return user_LONGITUDE;
+        case "Temperature Unit":
+          return tempUnit;
+        case "Wind Speed Unit":
+          return windspeedUNIT;
+        case "Forecast Days":
+          return forecastdays;
+      default:
+        return '0';
+    break;
+}
+
     }
     // debugging things
     is_sandboxed() {
