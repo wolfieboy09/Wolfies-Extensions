@@ -25,10 +25,6 @@
     var payload = basePayload;
     var toBeDeleted = [""];
 
-    if (!Scratch.extensions.unsandboxed) {
-        throw new Error("Accounter must be unsandboxed");
-    }
-
     class Accounter {
         getInfo() {
             return {
